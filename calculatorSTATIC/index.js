@@ -1,0 +1,7 @@
+console.log('hello calculator')
+const Calculator = require('./lib/Calculator')
+console.log(Calculator)
+// module.exports = console.log(calculateNumbers(operator, numbers))
+// console.log(Calculator.vita)
+// console.log(Calculator.roma)
+// Calculator.helloRoma()

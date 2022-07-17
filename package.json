@@ -1,0 +1,27 @@
+{
+  "name": "js-training",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "cross-env NODE_ENV=production roma=beer vita=pizza  node server.js",
+    "dev": "cross-env roma=beer vita=pizza NODE_ENV=development nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/romanlancer/node-js-training.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/romanlancer/node-js-training/issues"
+  },
+  "homepage": "https://github.com/romanlancer/node-js-training#readme",
+  "dependencies": {
+    "colors": "^1.4.0",
+    "cross-env": "^7.0.3",
+    "express": "^4.18.1",
+    "nodemon": "^2.0.19"
+  }
+}
