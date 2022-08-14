@@ -10,6 +10,8 @@ const app = express()
 app.use(express.urlencoded({ extended: false }))
 app.use(express.json())
 app.use('/api/v1', require('./routes/routesCars'))
+app.use('/', require('./routes/routesUsers'))
+
 app.use(require('./middlewares/errorHandler'))
 const { PORT } = process.env
 
