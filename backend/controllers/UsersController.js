@@ -90,6 +90,10 @@ class UsersController {
   })
 
   logout = asyncHandler(async (req, res) => {
+    const { _id } = req.user
+
+    await User.findByIdAndUpdate(_id, { token: '' })
+    res.status(204).send()
     //   1. отримуєм дані від користувача
     //  2. робимо валідацію даних
     // 3. шукаєм користувача в базі даних і перевіряємо те, що він ввів з тим, що є в базі даних
