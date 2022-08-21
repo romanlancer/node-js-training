@@ -1,8 +1,10 @@
 const asyncHandler = require('express-async-handler')
+const { validationResult } = require('express-validator')
 const User = require('../models/user')
 const Role = require('../models/role')
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
+const uaLocales = require('../../config/locales/ua')
 class UsersController {
   registration = asyncHandler(async (req, res) => {
     //   1. отримуєм дані від користувача
@@ -11,6 +13,12 @@ class UsersController {
     //   4. якщо користувач є, робимо сповіщення, що користувач є, логін можливий
     // 5. хешируємо пароль
     // 6. зберігаємо в базу даних
+    const errors = validationResult(req)
+    if (!errors.isEmpty()) {
+      return res
+        .status(400)
+        .json({ message: uaLocales.validation.registration.msg, errors })
+    }
 
     const { userEmail, userPassword } = req.body
     if (!(userEmail && userPassword)) {
@@ -94,12 +102,6 @@ class UsersController {
 
     await User.findByIdAndUpdate(_id, { token: '' })
     res.status(204).send()
-    //   1. отримуєм дані від користувача
-    //  2. робимо валідацію даних
-    // 3. шукаєм користувача в базі даних і перевіряємо те, що він ввів з тим, що є в базі даних
-    //   4. якщо коритсувача нема, то йому треба зареєструватись.
-    // 5. якщо користувач ввів не вірний логін або пароль, то треба ввести корректні дані (логін і пароль)
-    // 6. генеруємо токен авторизації
   })
 
   getAllUsers = asyncHandler(async (req, res) => {

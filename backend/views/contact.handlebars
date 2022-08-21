@@ -1,0 +1,35 @@
+<h1>Contact form</h1>
+<h2>{{msg}}</h2>
+{{! <form method='post' action='http://localhost:5500/send'> }}
+<form method='post' action='send'>
+  <div class='row'>
+    <div class='six columns'>
+      <label for='exampleEmailInput'>Your email</label>
+      <input
+        name='userEmail'
+        class='u-full-width'
+        type='email'
+        placeholder='test@mailbox.com'
+        id='exampleEmailInput'
+      />
+    </div>
+    <div class='six columns'>
+      <label for='exampleEmailInput'>Your name</label>
+      <input
+        name='userName'
+        class='u-full-width'
+        type='text'
+        placeholder='John Doe'
+        id='exampleEmailInput'
+      />
+    </div>
+  </div>
+  <label for='exampleMessage'>Message</label>
+  <textarea
+    name='userText'
+    class='u-full-width'
+    placeholder='Hi Dave …'
+    id='exampleMessage'
+  ></textarea>
+  <input class='button-primary' type='submit' value='Submit' />
+</form>
